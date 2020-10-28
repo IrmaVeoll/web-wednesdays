@@ -117,13 +117,15 @@ def predict(X, params, L):
 #===============================================================================================================
 
 def plot_fn(itr,cost_momentum,cost_rms,cost_adam,cost_adabelief,cost_sgd):
-    plt.plot(itr,cost_momentum,color="blue",linestyle='dotted',label="mommentum")
-    plt.plot(itr,cost_rms,color="black",linestyle='dotted',label="rmsprop")
-    plt.plot(itr,cost_adam,color="red",linestyle='dotted',label="adam")
-    plt.plot(itr,cost_sgd,color="green",linestyle='dotted',label="minibatch-sgd")
-    plt.plot(itr,cost_adabelief,color="black",label="adabelief")
-    plt.xlabel('num_iter')
-    plt.ylabel('cost')
+    fig, ax = plt.subplots(figsize=(20, 10))
+    ax.plot(itr,cost_momentum,color="blue",linestyle='dotted',label="mommentum")
+    ax.plot(itr,cost_rms,color="black",linestyle='dotted',label="rmsprop")
+    ax.plot(itr,cost_adam,color="red",linestyle='dotted',label="adam")
+    ax.plot(itr,cost_sgd,color="green",linestyle='dotted',label="minibatch-sgd")
+    ax.plot(itr,cost_adabelief,color="black",label="adabelief")
+    ax.set_box_aspect(1/4)
+    ax.set_xlabel('num_iter')
+    ax.set_ylabel('cost')
     plt.legend()
     plt.title('visualization of different optimizers')
     plt.show()
