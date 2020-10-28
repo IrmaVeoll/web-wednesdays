@@ -116,11 +116,12 @@ def predict(X, params, L):
     return Y_predict
 #===============================================================================================================
 
-def plot_fn(itr,cost_momentum,cost_rms,cost_adam,cost_sgd):
-    plt.plot(itr,cost_momentum,color="blue",label="mommentum")
-    plt.plot(itr,cost_rms,color="black",label="rmsprop")
-    plt.plot(itr,cost_adam,color="red",label="adam")
-    plt.plot(itr,cost_sgd,color="green",label="minibatch-sgd")
+def plot_fn(itr,cost_momentum,cost_rms,cost_adam,cost_adabelief,cost_sgd):
+    plt.plot(itr,cost_momentum,color="blue",linestyle='dotted',label="mommentum")
+    plt.plot(itr,cost_rms,color="black",linestyle='dotted',label="rmsprop")
+    plt.plot(itr,cost_adam,color="red",linestyle='dotted',label="adam")
+    plt.plot(itr,cost_sgd,color="green",linestyle='dotted',label="minibatch-sgd")
+    plt.plot(itr,cost_adabelief,color="black",label="adabelief")
     plt.xlabel('num_iter')
     plt.ylabel('cost')
     plt.legend()
